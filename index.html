@@ -157,6 +157,69 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-hello-world 9" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/31/hello-world 9/">python基础</a>
+    </h1>
+  
+
+        
+        <a href="/2018/07/31/hello-world 9/" class="archive-article-date">
+  	<time datetime="2018-07-31T00:43:11.541Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="组合数据类型（set）"><a href="#组合数据类型（set）" class="headerlink" title="组合数据类型（set）"></a>组合数据类型（set）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">啦啦啦啦</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/07/31/hello-world 9/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world 8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -290,7 +353,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/26/hello-world 6/">python基础</a>
+      <a class="article-title" href="/2018/07/26/hello-world 6/">函数</a>
     </h1>
   
 
@@ -303,7 +366,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="组合数据类型（set）"><a href="#组合数据类型（set）" class="headerlink" title="组合数据类型（set）"></a>组合数据类型（set）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">啦啦啦啦</span><br></pre></td></tr></table></figure>
+        <h2 id="常用的高阶函数"><a href="#常用的高阶函数" class="headerlink" title="常用的高阶函数"></a>常用的高阶函数</h2><p>1）匿名函数<br>使用lambda关键字进行修饰，没有显式声明函数的名字。格式如下：<br>lambda 参数：表达式（返回值）<br>注意，在使用匿名函数时，因为其自身的情况限制，匿名函数并不能执行比较复杂的业务逻辑，即函数内的代码不能过多。lambda本身是一个表达式<br>2）map函数（映射函数）<br>函数格式：map(func,iterable)<br>返回值：map 对象（迭代器）<br>说明：map函数主要作用是，将指定函数与序列中的元素进行映射，并完成函数中功能的批量操作，返回值为一个迭代器。我们可以使用for循环或next()函数进行遍历。通常情况下，如果映射的函数较为简单，我们就不单独声明函数，而是采用匿名函数来实现，这样也能提高运行效率。<br>3）reduce函数（归纳函数）<br>函数格式：reduce(func,iterator)<br>返回值：返回函数计算结果，具体类型根据函数的返回值来定<br>说明：reduce函数中的func，一定要设为两个参数，用来接收迭代器返回的值。操作顺序为首先接收第一、第二个值，进行运算；运算结果再与第三个值进行运行，以此类推，直到迭代器迭代完全部数据。<br>4）filter函数（过滤函数）<br>函数格式：filter(func,iterable)<br>返回值：返回一个迭代器<br>说明：过滤函数与映射函数类似，都需要将函数作用于序列中的每个元素，根据函数判断True或False，返回相关元素。<br>8、递归<br>递归概念：就是使用自身函数对自身进行调用，每调用一次将当前次的运行结果保存到函数的堆栈中，以副本形式保存，一直到最后完成全部调用。然后逐一向外将当期函数的结果返回并退出到其调用的位置。<br>在Python中，通常推荐使用迭代，递归本身对内存的消耗和运行效率低下的问题较少使用。</p>
+<h2 id="关于函数的引用与容器类元素的使用"><a href="#关于函数的引用与容器类元素的使用" class="headerlink" title="关于函数的引用与容器类元素的使用"></a>关于函数的引用与容器类元素的使用</h2><p>def f1():<br>    print(‘我是函数f1’)<br>def f2():<br>    print(‘我是函数f2’)<br>def f3():<br>    print(‘我是函数f3’)<br>a=f1             #引用  指向的是函数的内存地址<br>b=f2             #引用  指向的是函数的内存地址<br>c=f3             #引用  指向的是函数的内存地址<br>li=[a,b,c]                                      #差别就是后面有无小括号<br>print(li[1])     #引用  指向的是函数的内存地址<br>li<a href="">1</a>          #调用了f2这个函数<br>PS F:\pythoncode&gt; &amp; python f:/pythoncode/lesson24.py</p>
+<p><function f2="" at="" 0x0000022cfff99a60=""><br>我是函数f2</function></p>
 
       
 
