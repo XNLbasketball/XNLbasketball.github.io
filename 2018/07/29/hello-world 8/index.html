@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>python基础 | 骑着一只蜗牛奔跑</title>
+  <title>二进制文件 | 骑着一只蜗牛奔跑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="组合数据类型（set）1啦啦啦啦">
+  <meta name="description" content="查找文件内容的大小补充：对文件进行读取的时候，在不知道文件的大小情况下，切记不要使用read（）、readlines（）、readline（）将文件中的内容那个一次性的读取到内存当中。因为有可能使文件内容过多，造成读取时使IO堵塞。建议将文件分多次的读入到内存中 通常请况下 我们可以先获取到文件的大小1234from  os import pathf=open(&amp;apos;my.txt,r&amp;apo">
 <meta name="keywords" content="Python、爬虫、Web开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python基础">
+<meta property="og:title" content="二进制文件">
 <meta property="og:url" content="http://yoursite.com/2018/07/29/hello-world 8/index.html">
 <meta property="og:site_name" content="骑着一只蜗牛奔跑">
-<meta property="og:description" content="组合数据类型（set）1啦啦啦啦">
+<meta property="og:description" content="查找文件内容的大小补充：对文件进行读取的时候，在不知道文件的大小情况下，切记不要使用read（）、readlines（）、readline（）将文件中的内容那个一次性的读取到内存当中。因为有可能使文件内容过多，造成读取时使IO堵塞。建议将文件分多次的读入到内存中 通常请况下 我们可以先获取到文件的大小1234from  os import pathf=open(&amp;apos;my.txt,r&amp;apo">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-26T00:50:14.874Z">
+<meta property="og:updated_time" content="2018-08-01T13:09:01.965Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python基础">
-<meta name="twitter:description" content="组合数据类型（set）1啦啦啦啦">
+<meta name="twitter:title" content="二进制文件">
+<meta name="twitter:description" content="查找文件内容的大小补充：对文件进行读取的时候，在不知道文件的大小情况下，切记不要使用read（）、readlines（）、readline（）将文件中的内容那个一次性的读取到内存当中。因为有可能使文件内容过多，造成读取时使IO堵塞。建议将文件分多次的读入到内存中 通常请况下 我们可以先获取到文件的大小1234from  os import pathf=open(&amp;apos;my.txt,r&amp;apo">
   
     <link rel="alternative" href="/atom.xml" title="骑着一只蜗牛奔跑" type="application/atom+xml">
   
@@ -166,7 +166,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      python基础
+      二进制文件
     </h1>
   
 
@@ -179,7 +179,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="组合数据类型（set）"><a href="#组合数据类型（set）" class="headerlink" title="组合数据类型（set）"></a>组合数据类型（set）</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">啦啦啦啦</span><br></pre></td></tr></table></figure>
+        <h2 id="查找文件内容的大小"><a href="#查找文件内容的大小" class="headerlink" title="查找文件内容的大小"></a>查找文件内容的大小</h2><p>补充：对文件进行读取的时候，在不知道文件的大小情况下，切记不要使用read（）、readlines（）、readline（）将文件中的内容那个一次性的读取到内存当中。因为有可能使文件内容过多，造成读取时使IO堵塞。<br>建议将文件分多次的读入到内存中</p>
+<p>通常请况下 我们可以先获取到文件的大小<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from  os import path</span><br><span class="line">f=open(&apos;my.txt,r&apos;)</span><br><span class="line">size=path.getsize(&apos;my.txt&apos;)</span><br><span class="line">print(size)     #  输出的时字节数</span><br></pre></td></tr></table></figure></p>
+<p>然后我们可以利用循环 进行分批读出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">f=open(&apos;my.txt&apos;,r)</span><br><span class="line">while True:</span><br><span class="line">    s=f.read(line)</span><br><span class="line">    if s==&apos;&apos;:</span><br><span class="line">        break</span><br><span class="line">    print(s)</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<h2 id="文本文件的写入与读出"><a href="#文本文件的写入与读出" class="headerlink" title="文本文件的写入与读出"></a>文本文件的写入与读出</h2><p>俩种方式 ：struct 和 pickle<br>1、使用struct模块，进行数据的输入输出<br>    使用步骤：<br>    第一，对要写入到文件中的各种类型数据，进行统一打包<br>    struct.pack(‘if’,10,12.4),其中，i:代表了整数，f：代表了浮点数<br>    ？：代表布尔型<br>    第二，使用write()写入，写入后以二进制的方式进行文件存储。<br>    第三，读取时，首先采用struct.unpack()来解包里面包含的相关数据，返回一个序列，即写入时的顺序，与读取时的顺序应该一致。<br>    注意：需要将所有写入的数据，一次性都封装到一个bytes中，因为在Python中没有byte的概念，所以需要第三方的模块进行封装。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#写入       </span><br><span class="line"></span><br><span class="line">import struct  </span><br><span class="line">a=123.2</span><br><span class="line">b=10</span><br><span class="line">c=True</span><br><span class="line">sn = struct.pack(&apos;if?&apos;,b,a,c)  #if？ 是个固定格式（这个关键是看你后面用的是什么类型 ii                                                                           ff etc。）  </span><br><span class="line">                                #  i代表的是整型 f代表的浮点型  ？代表的是其他的类型</span><br><span class="line"></span><br><span class="line">f=open(&apos;my.dat&apos;,&apos;wb&apos;)</span><br><span class="line">f.write(sn)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#读出</span><br><span class="line">import struct</span><br><span class="line">f= open (&apos;my.dat&apos;,&apos;rb&apos;)</span><br><span class="line">sn=f.read()</span><br><span class="line">ls=struct.unpack(&apos;if?&apos;,sn)    # 写入的时候是打包，读出的时候是 解包</span><br><span class="line">print(ls)</span><br><span class="line">print(ls[0])</span><br><span class="line">print(ls[1])</span><br><span class="line">print(ls[2])</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p> 2、使用pickel模块，进行数据的输入输出<br>    使用步骤：<br>    第一，对要写入文件中的数据，进行逐一的写入。例如：<br>    f = open(‘myfile.dat’,’wb’)<br>    pickle.dump(10, f)<br>    第二，读取数据时，同理，需要逐一的读取。例如：<br>    pickle.load(f)<br>    注意，在使用时，我们能够观察到该模块的dump和load函数，与前面所学的json模块的函数一致，在Python中json与pickle都能够实现序列化和反序列化的两个模块。<br>    在实际的使用中，推荐使用pickle 模块。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#写入 </span><br><span class="line">import pickle</span><br><span class="line">a=10</span><br><span class="line">b=12.3</span><br><span class="line">c=True</span><br><span class="line">d=&apos;hello world&apos;</span><br><span class="line">q=[[1,2,3],[2,3,4]]</span><br><span class="line">t=&apos;你好&apos;</span><br><span class="line">f=open(&apos;my.dat&apos;,&apos;wb&apos;)</span><br><span class="line">pickle.dump(a,f)</span><br><span class="line">pickle.dump(b,f)</span><br><span class="line">pickle.dump(c,f)</span><br><span class="line">pickle.dump(d,f)</span><br><span class="line">pickle.dump(q,f)</span><br><span class="line">pickle.dump(t,f)</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#读出（1）</span><br><span class="line">f=open(&apos;my.dat&apos;,&apos;rb&apos;)</span><br><span class="line">n=pickle.load(f)</span><br><span class="line">print (n)</span><br><span class="line">i=0</span><br><span class="line">while i&lt;n:          </span><br><span class="line">    x =pickle.load(f)</span><br><span class="line">    print(x)</span><br><span class="line">    i+=1</span><br><span class="line">f.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#读出（2） 这样是比较简单的！   这样写的是前提就是知道自己 写入了的内容与个数    然后自己一个一个的打印出来</span><br><span class="line">with open (&apos;my.dat&apos;,&apos;rb&apos;) as f:   #这种格式是不需要写close的  用完自己就进行关闭了。   </span><br><span class="line">    x=pickle.load(f)</span><br><span class="line">    y=pickle.load(f)</span><br><span class="line">    z=pickle.load(f)</span><br><span class="line">    w=pickle.load(f)</span><br><span class="line">    e=pickle.load(f)</span><br><span class="line">    o=pickle.load(f)</span><br><span class="line">    print(x,y,z,w,e,o)</span><br></pre></td></tr></table></figure>
+<p>3、文件定位<br>    函数格式：seek(n)<br>    返回值：返回指定的位置<br>    说明：通过指定元素的位置，将文件指针移动到该位置。<br>    seek()函数有三个固定值，分别为：0,1,2<br>    0：文件的开头<br>    1：文件当前的位置<br>    2：文件的结尾位置<br>    seek(0,2):代表着将指针定位到文件尾，然后进行添加操作<br>    seek(0,1):代表着在当前指针的位置，进行替换</p>
+<pre><code>补充：对文件的读取时，如果文件大小未知，切忌不要使用read(),readline()，readlines()将文件内容一次性读取到内存中。因为有可能文件内容过多，造成读取时的IO阻塞。建议，将文件分多次分批读入内存中。我们通常可以先获取到文件大小，
+size = path.getsize(&apos;myfile.txt&apos;)
+</code></pre><p>根据其大小来判断我们采用何种方式进行读取数据内容</p>
 
       
 
@@ -277,14 +288,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          python基础
+          补充 对execl文件的操作
         
       </div>
     </a>
   
   
     <a href="/2018/07/27/hello-world 7/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python基础</div>
+      <div class="article-nav-title">文本文件</div>
       <i class="icon-circle-right"></i>
     </a>
   
