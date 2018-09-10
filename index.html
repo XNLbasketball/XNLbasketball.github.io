@@ -178,25 +178,17 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="Mysql（数据定义语言（DDL））"><a href="#Mysql（数据定义语言（DDL））" class="headerlink" title="Mysql（数据定义语言（DDL））"></a>Mysql（数据定义语言（DDL））</h2><p>提示：一般情况下 ，在我们写程序的时候 首先会将数据库中的表结构给确定了，还有每次都要报数据库进行备份，防止意外发生。</p>
-<hr>
-<p>一、数据库语言</p>
-<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一、数据库语言</span><br></pre></td></tr></table></figure>
 <p>1、分类<br>数据库定义语言   DDL（create database/table（创建）<br>drop database/table（删除）<br>alter database/table（增加））<br>数据库操纵语言   DML(insert、delete、update、select)<br>数据库控制语言   DCL（grant（授权）、revoke（撤销授权））<br>注意，数据库定义语言和数据库控制语言都是不可撤销的。而数据库操作语言是可以撤销 。</p>
 <hr>
 <h3 id="1、数据定义语言（DDL）"><a href="#1、数据定义语言（DDL）" class="headerlink" title="1、数据定义语言（DDL）"></a>1、数据定义语言（DDL）</h3><hr>
 <p>首先先查看一下，自己的数据库里面有多少个是自己创建的数据库，使用 show databases 命令.<br>1）、创建数据库<br>create database 数据库名；<br>2）、打开数据库<br>use 数据库名；<br>3）、删除数据库<br>drop database 数据库名；<br>4）创建数据表<br>首先，必须先打开一个数据库，然后在其下面进行数据表的创建：<br>create table 表名(列名 数据类型(长度),列名 数据类型（长度）,……) default charset=utf8<br>注意，如果创建表的时候，没有指定字符集，那么该表将默认（长度为11）采用其所在数据库的字符集。通常我们建议指定缺省的字符集。<br>mysql&gt; create table persons(pno int not null primary key ,pname varchar(5),age int(3),hire_date date,salary double(6,2)) default charset=utf8;   #  double 的用法 6表示总长度， 2 表示 俩个小数点<br>Insert into friends values(10001，‘小张’，20，11)  #  往表内添加信息。 括号里面的参数需要与创建时 写入的顺序保持一致。<br>5)、查看数据表的字符集情况<br>show variables like ‘character%’;<br>6)类型名    含义<br>  TINYINT    一个很小的整数，1 个字节<br>  SMALLINT    一个小整数，2个字节<br>  MEDIUMINT    一个中等大小整数，3个字节<br>  INT、INTEGER    一个正常大小整数，4个字节<br>  BIGINT    一个大整数，8个字节<br>  FLOAT    一个小(单精密)浮点数字，近似值，可以带一个整数类型的参数，0到23的精度对应FLOAT列的4字节单精度。24到53的精度对应                DOUBLE列的8字节双精度。<br>DOUBLE,DOUBLE  PRECISION,REAL    一个正常大小(双精密)浮点数字，近似值<br>DECIMAL（或简写为DEC）<br>NUMERIC    一个精确的浮点数字</p>
 <p>其中：在你指定int参数的时候，显示出来的是你认定的值，不指定参数的时候，缺省值为11;Smallint 的缺省值时 6.</p>
-<hr>
-<p>varchar 与char的区别：</p>
-<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">varchar 与char的区别：</span><br></pre></td></tr></table></figure>
 <p>1，varchar（m）一个变长字符串，必须指指定M值。长度可以指定为0到65,535(2^16-1)之间的值；如果给定的长度是8 而需要的是4个 则直接给他分配四个。<br>2,char(m)是一个定长的字符串，M的取值范围是0-255. 当CHAR值被存储时，他们被用空格在右边填补到指定的长度。当CHAR值被检索时，拖后的空格被删去;如果给定的长度是8 而需要的是4个 则直接给他分配四个,剩下的就是空格填充。<br>CHAR和VARCHAR语法：<br>CHAR(M)    [BINARY]<br>VARCHAR(M)   [BINARY]，带上BINARY表示排序时区分大小写，否则不区分。</p>
-<hr>
-<p>数据库的字段类型</p>
-<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据库的字段类型</span><br></pre></td></tr></table></figure>
 <p>字符类型 ：<br>char(定长的，一旦声明长度，即使字段不能达到最大长度，也能按照最大长度进行所占字节的分配的  取值范围 0-2^8 -1)<br>Varchar：（变长的字符类型，声明长度后，如果字段数据长度达不到最大长度，则会根据实际长度给出数据的长度，取值范围0-2^16 -1）<br>数值类型：<br>     Int（长度）；出给指代那个的字段数据长度，如果没有明确指定长度，则采用默认长度11，所占字节4个。<br>日期类型：<br>  Date  日期类型字段，在定义时不需要指定长度，格式为YYYY-MM-DD 所占3个字节<br>  Time  日期类型的字段，格式为HH:MM:SS                        所占3个字节<br>  Datetime  日期类型的字段， 格式YYYY-MM-DD HH:MM:SS          所占8个字节<br>布尔类型：<br>      0代表假，1代表真。实际在MySQL数据中，bool类型等同于数值类型中tinyint类型，占一个字节 </p>
-<hr>
-<p>修改表结构</p>
-<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修改表结构</span><br></pre></td></tr></table></figure>
 <p>修改的表内部的结构 不修改表的本身，都是可逆的，不可被撤销）<br>Alter table 表名(add/modify/change/drop) 字段名 [数据类型]<br>添加字段，位于表中的最后一列。<br>Alter table tablename drop 字段名：删除一列，如果列中有数据，则全部被删除切不可恢复。</p>
 <p>添加一列：alter table tablename  add  column  字段名 （数据类型）;  (column关键字可以省略)<br>修改某列：alter table  tablename  modify 字段名 数据类型； 修改数据类型以及长度。<br>删除一列：alter table t1 drop column c2;       (column 关键字可以省略)<br>修改列名：alter table t1 change 旧列名　新列名　数据类型；（提示：数据类型可改可不改）<br>还可以修改表名 rename table 表明名  to 新表名</p>
 <p>修改一张表的所有字段编码格式：<br>alter table person convert to character set utf8;</p>
