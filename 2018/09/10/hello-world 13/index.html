@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | 骑着一只蜗牛奔跑</title>
+  <title>数据操作语言 | 骑着一只蜗牛奔跑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="keywords" content="Python、爬虫、Web开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="骑着一只蜗牛奔跑">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+  <meta name="description" content="Mysql（数据定义语言（DDL））2、数据操作语言1）数据类型间的默认转换  字符串=&amp;gt;日期 如果字段数据的类型定义为日期型，例如：（YYYY-MM-DD），如果我们对该字段插入数据时，采用‘2018-32-43’的字符串格式进行数据插入，mysql会自动的讲将字符串转化为日期型。   字符串=&amp;gt;数值型当字段数据类型的为字符串时，但具体值为数值，我们使用该字段的值与数值进行运算，那么">
+<meta name="keywords" content="Python、爬虫、Web开发">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据操作语言">
+<meta property="og:url" content="http://yoursite.com/2018/09/10/hello-world 13/index.html">
 <meta property="og:site_name" content="骑着一只蜗牛奔跑">
+<meta property="og:description" content="Mysql（数据定义语言（DDL））2、数据操作语言1）数据类型间的默认转换  字符串=&amp;gt;日期 如果字段数据的类型定义为日期型，例如：（YYYY-MM-DD），如果我们对该字段插入数据时，采用‘2018-32-43’的字符串格式进行数据插入，mysql会自动的讲将字符串转化为日期型。   字符串=&amp;gt;数值型当字段数据类型的为字符串时，但具体值为数值，我们使用该字段的值与数值进行运算，那么">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-10T10:44:40.557Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="骑着一只蜗牛奔跑">
+<meta name="twitter:title" content="数据操作语言">
+<meta name="twitter:description" content="Mysql（数据定义语言（DDL））2、数据操作语言1）数据类型间的默认转换  字符串=&amp;gt;日期 如果字段数据的类型定义为日期型，例如：（YYYY-MM-DD），如果我们对该字段插入数据时，采用‘2018-32-43’的字符串格式进行数据插入，mysql会自动的讲将字符串转化为日期型。   字符串=&amp;gt;数值型当字段数据类型的为字符串时，但具体值为数值，我们使用该字段的值与数值进行运算，那么">
   
     <link rel="alternative" href="/atom.xml" title="骑着一只蜗牛奔跑" type="application/atom+xml">
   
@@ -155,295 +159,167 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-hello-world 13" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      数据操作语言
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/10/hello-world 13/" class="archive-article-date">
+
+        
+        <a href="/2018/09/10/hello-world 13/" class="archive-article-date">
   	<time datetime="2018-09-10T10:40:29.224Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-10</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/10/hello-world 13/">数据操作语言</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mysql（数据定义语言（DDL））"><a href="#Mysql（数据定义语言（DDL））" class="headerlink" title="Mysql（数据定义语言（DDL））"></a>Mysql（数据定义语言（DDL））</h2><p>2、数据操作语言<br>1）数据类型间的默认转换<br>  字符串=&gt;日期<br> 如果字段数据的类型定义为日期型，例如：（YYYY-MM-DD），如果我们对该字段插入数据时，采用‘2018-32-43’的字符串格式进行数据插入，mysql会自动的讲将字符串转化为日期型。<br>   字符串=&gt;数值型<br>当字段数据类型的为字符串时，但具体值为数值，我们使用该字段的值与数值进行运算，那么得到的结果为数值型，同时，如果字段类型定义为数值型，我们可以将数值型字符串插入到指定的字段中。<br>如果，字段类型为字符型，其中由字符串与数字回合组成（只要不是纯字符串），此时与数值进行算术运算，那么该字段内容都被转换为0来处理，显示的结果为该数值。<br>   比如： 100P312+3 = 1003<br>          P12345+ 4   =4<br>2） 运算符<br>算术运算符<br>比较运算符<br>逻辑运算符<br>位运算符<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">插入数据</span><br></pre></td></tr></table></figure></p>
+<p>标准格式：insert into 表名（字段1，字段2，字段3，….） values(字段1值，字段2值，字段3值，…)</p>
+<p>Insert into persons(pno,pname,age,hire_date,salary) values(‘10001’,’tom’,21,’2018-03-12’,3459);<br>这样写的好处插入时速率比较快。如果不写的 mysql需要自动扫描全表与后面的值进行一一匹配。通常，我们在声明表明的时候将需要插入数据的字段名一起进行声明，有利于提高插入的效率，同时如果有些字段的值为null，可以在实际插入的时候省略。另外，字段值只需要</p>
+<p>简写格式：Insert into 表名 values (字段1值，字段2 值，字段3 值 ) ;<br>这种写法，需要我么们在values后面，按照表中各个字段的时间顺序进行一一的对应，同时，如果莫格字段值为null ,也必须将null的值进行标明</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">插入多条语句</span><br></pre></td></tr></table></figure>
+<pre><code>insert into 表名（字段名） values(字段值1,...，字段值n)，(字段值1,...，字段值n)
+</code></pre><p>一次性插入多条数据</p>
+<p> insert into person_bak(pno,pname,age,hire_date,salary) select * from persons;<br>将指定表的查询结果，作为要插入到目标表中的数据，进行插入。要求是目标表结构与指定表的结构相同。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">更新数据</span><br></pre></td></tr></table></figure></p>
+<p>  格式：<br>update 表名 set 字段1=新值，字段2=新值，…，字段n=新值 where 条件<br>进行更新操作时，一定要进行条件的约束，如果该语句没有条件子句的话，就表示对全表进行更新操作。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">删除数据</span><br></pre></td></tr></table></figure></p>
+<p>  格式：<br>Delete  from 表名 where  条件<br>  进行删除操作时，一定要添加条件，如果没有条件子句，就意味着删除全表内容。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据操作的撤销和提交</span><br></pre></td></tr></table></figure></p>
+<p>   mysql数据库默认模式为自动提交：autocommit=on</p>
+<p>我们如果需要对mysql进行撤销和提交操作，需要先将默认的自动提交模式取消，设置为off<br>即：set autocommit=off<br>当我们进行增删改操作时，如果执行rollback操作，那么该操作就会被撤销；<br>如果执行commit操作，那么该操作就会持久化到数据库中。<br>commit<br>rollback</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/10/hello-world 13/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/10/hello-world 12/" class="archive-article-date">
-  	<time datetime="2018-09-10T10:15:08.716Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-10</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/10/hello-world 12/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据库</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/10/hello-world 12/">数据库</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/14/hello-world 11/" class="archive-article-date">
-  	<time datetime="2018-08-14T13:51:20.054Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/14/hello-world 11/">爬虫基础</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/01/hello-world 10/" class="archive-article-date">
-  	<time datetime="2018-08-01T11:29:55.654Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/01/hello-world 10/">对.XML文件的操作</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/31/hello-world 9/" class="archive-article-date">
-  	<time datetime="2018-07-31T00:43:11.541Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/31/hello-world 9/">补充 对execl文件的操作</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/29/hello-world 8/" class="archive-article-date">
-  	<time datetime="2018-07-28T23:32:38.415Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/29/hello-world 8/">二进制文件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/27/hello-world 7/" class="archive-article-date">
-  	<time datetime="2018-07-27T00:35:04.821Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/27/hello-world 7/">文本文件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/26/hello-world 6/" class="archive-article-date">
-  	<time datetime="2018-07-26T00:48:15.993Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-26</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/26/hello-world 6/">函数</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/23/hello-world 5/" class="archive-article-date">
-  	<time datetime="2018-07-23T00:41:01.463Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-23</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/23/hello-world 5/">python基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/07/19/hello-world 4/" class="archive-article-date">
-  	<time datetime="2018-07-19T12:25:55.511Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-19</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/19/hello-world 4/">python基础</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -470,8 +346,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
