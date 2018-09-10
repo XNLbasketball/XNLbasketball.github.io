@@ -157,6 +157,91 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-hello-world 12" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/10/hello-world 12/">数据库</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/10/hello-world 12/" class="archive-article-date">
+  	<time datetime="2018-09-10T10:15:08.716Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Mysql（数据定义语言（DDL））"><a href="#Mysql（数据定义语言（DDL））" class="headerlink" title="Mysql（数据定义语言（DDL））"></a>Mysql（数据定义语言（DDL））</h2><p>提示：一般情况下 ，在我们写程序的时候 首先会将数据库中的表结构给确定了，还有每次都要报数据库进行备份，防止意外发生。</p>
+<hr>
+<p>一、数据库语言</p>
+<hr>
+<p>1、分类<br>数据库定义语言   DDL（create database/table（创建）<br>drop database/table（删除）<br>alter database/table（增加））<br>数据库操纵语言   DML(insert、delete、update、select)<br>数据库控制语言   DCL（grant（授权）、revoke（撤销授权））<br>注意，数据库定义语言和数据库控制语言都是不可撤销的。而数据库操作语言是可以撤销 。</p>
+<hr>
+<h3 id="1、数据定义语言（DDL）"><a href="#1、数据定义语言（DDL）" class="headerlink" title="1、数据定义语言（DDL）"></a>1、数据定义语言（DDL）</h3><hr>
+<p>首先先查看一下，自己的数据库里面有多少个是自己创建的数据库，使用 show databases 命令.<br>1）、创建数据库<br>create database 数据库名；<br>2）、打开数据库<br>use 数据库名；<br>3）、删除数据库<br>drop database 数据库名；<br>4）创建数据表<br>首先，必须先打开一个数据库，然后在其下面进行数据表的创建：<br>create table 表名(列名 数据类型(长度),列名 数据类型（长度）,……) default charset=utf8<br>注意，如果创建表的时候，没有指定字符集，那么该表将默认（长度为11）采用其所在数据库的字符集。通常我们建议指定缺省的字符集。<br>mysql&gt; create table persons(pno int not null primary key ,pname varchar(5),age int(3),hire_date date,salary double(6,2)) default charset=utf8;   #  double 的用法 6表示总长度， 2 表示 俩个小数点<br>Insert into friends values(10001，‘小张’，20，11)  #  往表内添加信息。 括号里面的参数需要与创建时 写入的顺序保持一致。<br>5)、查看数据表的字符集情况<br>show variables like ‘character%’;<br>6)类型名    含义<br>  TINYINT    一个很小的整数，1 个字节<br>  SMALLINT    一个小整数，2个字节<br>  MEDIUMINT    一个中等大小整数，3个字节<br>  INT、INTEGER    一个正常大小整数，4个字节<br>  BIGINT    一个大整数，8个字节<br>  FLOAT    一个小(单精密)浮点数字，近似值，可以带一个整数类型的参数，0到23的精度对应FLOAT列的4字节单精度。24到53的精度对应                DOUBLE列的8字节双精度。<br>DOUBLE,DOUBLE  PRECISION,REAL    一个正常大小(双精密)浮点数字，近似值<br>DECIMAL（或简写为DEC）<br>NUMERIC    一个精确的浮点数字</p>
+<p>其中：在你指定int参数的时候，显示出来的是你认定的值，不指定参数的时候，缺省值为11;Smallint 的缺省值时 6.</p>
+<hr>
+<p>varchar 与char的区别：</p>
+<hr>
+<p>1，varchar（m）一个变长字符串，必须指指定M值。长度可以指定为0到65,535(2^16-1)之间的值；如果给定的长度是8 而需要的是4个 则直接给他分配四个。<br>2,char(m)是一个定长的字符串，M的取值范围是0-255. 当CHAR值被存储时，他们被用空格在右边填补到指定的长度。当CHAR值被检索时，拖后的空格被删去;如果给定的长度是8 而需要的是4个 则直接给他分配四个,剩下的就是空格填充。<br>CHAR和VARCHAR语法：<br>CHAR(M)    [BINARY]<br>VARCHAR(M)   [BINARY]，带上BINARY表示排序时区分大小写，否则不区分。</p>
+<hr>
+<p>数据库的字段类型</p>
+<hr>
+<p>字符类型 ：<br>char(定长的，一旦声明长度，即使字段不能达到最大长度，也能按照最大长度进行所占字节的分配的  取值范围 0-2^8 -1)<br>Varchar：（变长的字符类型，声明长度后，如果字段数据长度达不到最大长度，则会根据实际长度给出数据的长度，取值范围0-2^16 -1）<br>数值类型：<br>     Int（长度）；出给指代那个的字段数据长度，如果没有明确指定长度，则采用默认长度11，所占字节4个。<br>日期类型：<br>  Date  日期类型字段，在定义时不需要指定长度，格式为YYYY-MM-DD 所占3个字节<br>  Time  日期类型的字段，格式为HH:MM:SS                        所占3个字节<br>  Datetime  日期类型的字段， 格式YYYY-MM-DD HH:MM:SS          所占8个字节<br>布尔类型：<br>      0代表假，1代表真。实际在MySQL数据中，bool类型等同于数值类型中tinyint类型，占一个字节 </p>
+<hr>
+<p>修改表结构</p>
+<hr>
+<p>修改的表内部的结构 不修改表的本身，都是可逆的，不可被撤销）<br>Alter table 表名(add/modify/change/drop) 字段名 [数据类型]<br>添加字段，位于表中的最后一列。<br>Alter table tablename drop 字段名：删除一列，如果列中有数据，则全部被删除切不可恢复。</p>
+<p>添加一列：alter table tablename  add  column  字段名 （数据类型）;  (column关键字可以省略)<br>修改某列：alter table  tablename  modify 字段名 数据类型； 修改数据类型以及长度。<br>删除一列：alter table t1 drop column c2;       (column 关键字可以省略)<br>修改列名：alter table t1 change 旧列名　新列名　数据类型；（提示：数据类型可改可不改）<br>还可以修改表名 rename table 表明名  to 新表名</p>
+<p>修改一张表的所有字段编码格式：<br>alter table person convert to character set utf8;</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/10/hello-world 12/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world 11" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -757,68 +842,6 @@ size = path.getsize(&apos;myfile.txt&apos;)
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/07/19/hello-world 3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world 2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/18/hello-world 2/">python基础</a>
-    </h1>
-  
-
-        
-        <a href="/2018/07/18/hello-world 2/" class="archive-article-date">
-  	<time datetime="2018-07-18T05:09:55.998Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="控制语句"><a href="#控制语句" class="headerlink" title="控制语句"></a>控制语句</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line">1）条件语句</span><br><span class="line">单判断：</span><br><span class="line"><span class="keyword">if</span> 条件:</span><br><span class="line">   代码</span><br><span class="line">例如：a=15</span><br><span class="line">b=13</span><br><span class="line">c=19</span><br><span class="line"><span class="keyword">if</span> a&gt;b and a&gt;c:         <span class="comment">#and ‘与’运算符</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'a is big value %d'</span>%a)</span><br><span class="line"><span class="keyword">if</span> b&gt;a and b&gt;c:         <span class="comment">#冒号  不能丢</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'b is big value%d'</span>%b)</span><br><span class="line"><span class="keyword">if</span> c&gt;a and c&gt;b :</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'c is big value%d'</span>%c)</span><br><span class="line">双分支：</span><br><span class="line"><span class="keyword">if</span> 条件：</span><br><span class="line">       代码</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">      代码</span><br><span class="line">多分支：（<span class="keyword">if</span> 与 <span class="keyword">elif</span> 是一个整体  只有执行完才会出结果）</span><br><span class="line"><span class="keyword">if</span> 条件：</span><br><span class="line">      代码</span><br><span class="line"><span class="keyword">elif</span> 条件：</span><br><span class="line">      代码</span><br><span class="line"><span class="keyword">elif</span> 条件：</span><br><span class="line">      代码</span><br><span class="line">...</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">      代码</span><br><span class="line">例如：a=15</span><br><span class="line">b=13</span><br><span class="line">c=30</span><br><span class="line"><span class="keyword">if</span> a&gt;b and a&gt;c :</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'a is big value %d'</span>%a)</span><br><span class="line"><span class="keyword">elif</span> b&gt;a and b&gt;c :</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'b is big value%d'</span>%b)</span><br><span class="line"><span class="keyword">else</span> :</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">'c is big value%d'</span>%c)</span><br><span class="line">2）逻辑运算符： and、or、not</span><br><span class="line">and:左右两端都是布尔型，其结果也为布尔型。当左右两端的值都为True，其结果才为True，有一方为False，其结果一定为False。</span><br><span class="line">or:左右两端都是布尔型，其结果也为布尔型。当左右两端的值有一方为True时，其结果就为True，只有在双方都为False时，其结果才为False。</span><br><span class="line">not：属于单目运算，其结果也是布尔型。其作用就是求反，如果变量为True，结果为False，如果为False，其结果为True。</span><br><span class="line">逻辑运算、比较运算常用在条件中使用。同时，这两种运算符经常配合使用。</span><br><span class="line"></span><br><span class="line">3）循环控制语句</span><br><span class="line"><span class="keyword">for</span>循环</span><br><span class="line">第一种：（推荐）</span><br><span class="line"><span class="keyword">for</span> 变量 <span class="keyword">in</span> 集合：<span class="comment">#in判断变量是否在集合里面</span></span><br><span class="line">    代码</span><br><span class="line">说明：这种循环方式，我们称为快速迭代循环，能够对集合数据进行遍历（循环）。</span><br><span class="line">注意：这种方式只能用在集合数据上，比如：字符串、列表、元组、字典等内容。</span><br><span class="line">例如：</span><br><span class="line">string1 = <span class="string">'hello world'</span></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> string1:</span><br><span class="line">	<span class="built_in">print</span>(item)</span><br><span class="line">h</span><br><span class="line">e</span><br><span class="line">l</span><br><span class="line">l</span><br><span class="line">o</span><br><span class="line"></span><br><span class="line">w</span><br><span class="line">o</span><br><span class="line">r</span><br><span class="line">l</span><br><span class="line">d</span><br><span class="line">第一步：查询数据源</span><br><span class="line">第二步：将str1的每一个字符去取并验证</span><br><span class="line">第二种：传统式，配合range()函数使用。通过range()函数指定了循环的范围。</span><br><span class="line"><span class="keyword">for</span> i range(循环次数):</span><br><span class="line">    代码</span><br><span class="line"></span><br><span class="line">说明：这种循环方式，采用指定循环次数，对目标集合进行遍历。其做法主要是让循环与集合的下标同步，在循环次数时一同取出集合指定下标的对应值。</span><br><span class="line">range()函数：</span><br><span class="line">函数格式：</span><br><span class="line">range(stop) :缺省情况下，表示从0开始，循环n次</span><br><span class="line">range(star,stop[,step])</span><br><span class="line">其中，star：循环开始的值，stop：循环次数，step：循环步长。注意此处循环，会根据stop中的值循环规定的次数，但是显示时会从start位置开始。</span><br><span class="line">例如：</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(3,10):</span><br><span class="line">	<span class="built_in">print</span>(i,end=<span class="string">' '</span>)</span><br><span class="line">3 4 5 6 7 8 9 </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(5,10):</span><br><span class="line">	<span class="built_in">print</span>(i,end=<span class="string">' '</span>)</span><br><span class="line">5 6 7 8 9 </span><br><span class="line">range(1,10)  </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>循环的常用方式：嵌套</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(次数):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(次数):</span><br><span class="line">    </span><br><span class="line">注意：在这种嵌套表示的过程中，变量的位置尤为重要，通用原则为：如果变量的值需要通过外层循环来获取或生成，那么我们可以将其设为全局变量，即与外层循环<span class="keyword">for</span>同等级的变量，如果变量需要在内层循环中生成或获取，我们通常会在外循环中声明，即与内循环同级。</span><br><span class="line"><span class="keyword">while</span>循环</span><br><span class="line">格式：<span class="keyword">while</span> 条件：</span><br><span class="line">           代码</span><br><span class="line">While循环与i=i+1  是分不开的。</span><br><span class="line">4)<span class="built_in">break</span>与<span class="built_in">continue</span></span><br><span class="line"><span class="built_in">break</span>：当满足指定条件时，<span class="built_in">break</span>表示中断（中止）此循环，如果循环外部还有其他代码则继续向下执行。</span><br><span class="line"><span class="built_in">continue</span>：当满足指定条件时，<span class="built_in">continue</span>表示结束本次循环，开始下一次循环。注意<span class="built_in">continue</span>并没有退出循环。</span><br><span class="line">同时，这两个关键字都是必须配合循环语句来使用，不能单独用在其他地方，比如：<span class="keyword">if</span></span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/07/18/hello-world 2/">展开全文 >></a>
         </p>
       
 
