@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>数据控制语言（DCL） | 骑着一只蜗牛奔跑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="11）用户管理 Select user ； 查询用户创建一个用户：create user ‘pythondb‘@’localhost’ identified by ‘123456’;  创建一个用户 ，但是还是没有授权。1授权： 分开授权：1、grant　普通数据用户，查询、更新、删除　数据库中所有表数据的权利。grant select on testdb. to common_user@’%’;">
+  <meta name="description" content="1用户管理 Select user ； 查询用户创建一个用户：create user ‘pythondb‘@’localhost’ identified by ‘123456’;  创建一个用户 ，但是还是没有授权。1授权： 分开授权：1、grant　普通数据用户，查询、更新、删除　数据库中所有表数据的权利。grant select on testdb. to common_user@’%’;">
 <meta name="keywords" content="Python、爬虫、Web开发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据控制语言（DCL）">
 <meta property="og:url" content="http://yoursite.com/2018/09/10/hello-world 14/index.html">
 <meta property="og:site_name" content="骑着一只蜗牛奔跑">
-<meta property="og:description" content="11）用户管理 Select user ； 查询用户创建一个用户：create user ‘pythondb‘@’localhost’ identified by ‘123456’;  创建一个用户 ，但是还是没有授权。1授权： 分开授权：1、grant　普通数据用户，查询、更新、删除　数据库中所有表数据的权利。grant select on testdb. to common_user@’%’;">
+<meta property="og:description" content="1用户管理 Select user ； 查询用户创建一个用户：create user ‘pythondb‘@’localhost’ identified by ‘123456’;  创建一个用户 ，但是还是没有授权。1授权： 分开授权：1、grant　普通数据用户，查询、更新、删除　数据库中所有表数据的权利。grant select on testdb. to common_user@’%’;">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-10T11:09:28.201Z">
+<meta property="og:updated_time" content="2018-09-10T11:10:56.965Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据控制语言（DCL）">
-<meta name="twitter:description" content="11）用户管理 Select user ； 查询用户创建一个用户：create user ‘pythondb‘@’localhost’ identified by ‘123456’;  创建一个用户 ，但是还是没有授权。1授权： 分开授权：1、grant　普通数据用户，查询、更新、删除　数据库中所有表数据的权利。grant select on testdb. to common_user@’%’;">
+<meta name="twitter:description" content="1用户管理 Select user ； 查询用户创建一个用户：create user ‘pythondb‘@’localhost’ identified by ‘123456’;  创建一个用户 ，但是还是没有授权。1授权： 分开授权：1、grant　普通数据用户，查询、更新、删除　数据库中所有表数据的权利。grant select on testdb. to common_user@’%’;">
   
     <link rel="alternative" href="/atom.xml" title="骑着一只蜗牛奔跑" type="application/atom+xml">
   
@@ -179,7 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1）用户管理</span><br></pre></td></tr></table></figure>
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用户管理</span><br></pre></td></tr></table></figure>
 <p>Select user ； 查询用户<br>创建一个用户：<br>create user ‘pythondb‘@’localhost’ identified by ‘123456’;  创建一个用户 ，但是还是没有授权。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">授权：</span><br></pre></td></tr></table></figure></p>
 <p>分开授权：<br>1、grant　普通数据用户，查询、更新、删除　数据库中所有表数据的权利。<br>grant select on testdb.<em> to common_user@’%’;<br>  grant insert on testdb.</em> to common_user@’%’;<br>  grant update on testdb.<em> to common_user@’%’;<br>  grant delete on testdb.</em> to common_user@’%’;<br>  grant select,update,delete,insert on testdb.<em> to common_user@’%’;<br>2、grant　数据库开发人员，创建表、索引、视图、存储过程、函数…权限。<br>　  grant create on testdb.</em> to developuser@’192.168.0.%’;<br>    grant alter on testdb.<em> to developuser@’192.168.0.%’;<br>    grant drop on testdb.</em> to developer@’192.168.0.%’;<br>    grant references on testdb.<em> to developer@’192.168.0.%’;<br>全部授权：<br>grant 普通　DBA 管理某个MySQL数据库的权限<br>grant all  on testdb.</em> to dba@’localhost’;<br>grant all privileges on mydb.<em>to ‘pythondb‘@localhost;<br>其中，关键字privileges可以省略。<br>grant　高级 DBA 管理MySQL中的所有数据库的权限。<br>grant all on </em>.* to dba@’localhost’;</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">查看权限</span><br></pre></td></tr></table></figure>
@@ -187,7 +187,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">撤销权限</span><br></pre></td></tr></table></figure>
 <p>Revoke 权限 on 数据库  from 用户名<br>revoke all privileges on mydb.* from ‘pythondb‘@’localhost’;<br>将mydb数据库上的左右权限，从pythondb用户收回。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">删除用户</span><br></pre></td></tr></table></figure></p>
 <p>Drop user 用户名<br>drop user ‘pythondb‘@’localhost’;</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5、事务</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">事务</span><br></pre></td></tr></table></figure>
 <p>背景：银行转账过程中，如果发生了意外，需要使用事务行处理。<br>A账户有余额1000元，向余额为200元的B 账号进行转账500元，由于发生了某些故障，造成A账号在转账过程中出此案了错误，需要使用事务回滚（rollback）。如果A账号成功扣款，转账完成，B账号余额增加500元.<br>不使用事务产生的问题：<br>1、    当A 账户进行转账扣款时，发生错误。B账号并么有收到转账金额500元。而A账号已经提示完成扣款。<br>2、    当A 账号进行转账发生错误，未成功扣款，而B账号提示收到转账金额500元。<br>我们称上述的情况产生的数据为脏数据（未清洗de数据）。<br>使用事务处理的具体操作：<br>1、    关闭MySQL自动提交功能。 set autocommit= off 或者 0；<br>2、    开始事务：start transaction  / begin<br>3、    执行相应的sql操作<br>4、    提交或回滚: commit  rollback<br>5、    将MySQL自动：set autocommit =1;<br>概念：<br>在MySQL中事务主要用于处理数据量大，复杂度高的数据。只有定义了InnoDB引擎的数据库才支持事务。事务处理可以用来维护数据库的完整性，保证SQL操作要么全完成，要么全不执行。</p>
 <h2 id="事务满足四个特性-ACID"><a href="#事务满足四个特性-ACID" class="headerlink" title="事务满足四个特性: ACID"></a>事务满足四个特性: ACID</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">重点！！！</span><br></pre></td></tr></table></figure>
 <p>A：原子性。一个事物中的所有操纵，会作为一个整体来看待，在执行时如果有一个操作没有成功，那么所有操作都将被滚。回到事务开始前的状态。<br>C:一致性。在事务开始之前和事务结束之后，数据库的完整性没有被破坏，说明写入的资料符合数据库的所有设置的规则，包括数据的精度。<br>I:隔离性：数据库允许同时并发多个事务，并且同时对数据库进行读写操作，隔离性可以保证防止多个事务并发执行时由于交叉执行而导致数据的不一致。<br>事务的隔离分为：读未提交、读提交、可重复读、串行化<br>D：持久性。事务处理结束后，对数据的修改时永久佛如，即存储在数据库中。</p>
