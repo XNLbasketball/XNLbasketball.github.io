@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="骑着一只蜗牛奔跑">
 <meta property="og:description" content="Mysql（数据定义语言（DDL））2、数据操作语言1）数据类型间的默认转换  字符串=&amp;gt;日期 如果字段数据的类型定义为日期型，例如：（YYYY-MM-DD），如果我们对该字段插入数据时，采用‘2018-32-43’的字符串格式进行数据插入，mysql会自动的讲将字符串转化为日期型。   字符串=&amp;gt;数值型当字段数据类型的为字符串时，但具体值为数值，我们使用该字段的值与数值进行运算，那么">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-10T10:44:40.557Z">
+<meta property="og:updated_time" content="2018-09-10T10:46:57.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据操作语言">
 <meta name="twitter:description" content="Mysql（数据定义语言（DDL））2、数据操作语言1）数据类型间的默认转换  字符串=&amp;gt;日期 如果字段数据的类型定义为日期型，例如：（YYYY-MM-DD），如果我们对该字段插入数据时，采用‘2018-32-43’的字符串格式进行数据插入，mysql会自动的讲将字符串转化为日期型。   字符串=&amp;gt;数值型当字段数据类型的为字符串时，但具体值为数值，我们使用该字段的值与数值进行运算，那么">
@@ -191,7 +191,6 @@
 <p>  格式：<br>Delete  from 表名 where  条件<br>  进行删除操作时，一定要添加条件，如果没有条件子句，就意味着删除全表内容。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数据操作的撤销和提交</span><br></pre></td></tr></table></figure></p>
 <p>   mysql数据库默认模式为自动提交：autocommit=on</p>
 <p>我们如果需要对mysql进行撤销和提交操作，需要先将默认的自动提交模式取消，设置为off<br>即：set autocommit=off<br>当我们进行增删改操作时，如果执行rollback操作，那么该操作就会被撤销；<br>如果执行commit操作，那么该操作就会持久化到数据库中。<br>commit<br>rollback</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
 
